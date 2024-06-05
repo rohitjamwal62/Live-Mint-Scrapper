@@ -1,6 +1,5 @@
-# spiders/livemint_spider.py
 from scrapy.http import Request
-import scrapy,json
+import scrapy
 from LiveMint_Scrapper.items import LivemintScraperItem
 
 class LivemintSpider(scrapy.Spider):
@@ -47,6 +46,5 @@ class LivemintSpider(scrapy.Spider):
             item['author_url'] = str(response.xpath("//span[@class='articleInfo author ']").getall()).split('href=')[1].split('">')[0].replace('"','') if str(response.xpath("//span[@class='articleInfo author ']").getall()).split('href=')[1].split('">')[0] else None
         except:
             item['author_url'] = ''
-        # Write_json_File(item)
         print(item)
         yield item
