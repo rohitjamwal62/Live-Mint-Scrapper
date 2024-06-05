@@ -3,23 +3,6 @@ from scrapy.http import Request
 import scrapy,json
 from LiveMint_Scrapper.items import LivemintScraperItem
 
-
-FileName = 'Article.json'
-
-
-def Write_json_File(extracted_data):
-    # Convert the LivemintScraperItem object to a dictionary
-    item_dict = dict(extracted_data)
-    
-    with open(FileName, 'a') as json_file:
-        # Serialize the dictionary to JSON string with indentation for readability
-        json_data = json.dumps(item_dict, indent=4)
-        
-        # Write the JSON data to the file with a newline character to separate each object
-        json_file.write(json_data)
-        json_file.write('\n')
-
-
 class LivemintSpider(scrapy.Spider):
     name = 'livemint'
     allowed_domains = ['livemint.com']
