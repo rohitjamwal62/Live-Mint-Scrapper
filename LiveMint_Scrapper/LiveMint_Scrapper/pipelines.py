@@ -1,7 +1,5 @@
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 from itemadapter import ItemAdapter
 import json
-
 
 class LivemintScrapperPipeline:
     def open_spider(self, spider):
